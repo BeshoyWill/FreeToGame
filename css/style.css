@@ -1,0 +1,240 @@
+/***** theme customize *****/
+[data-theme="dark"] {
+   --main-color: #272b30;
+   --second-color: #32383e;
+   --nav-color: #3a497b;
+   --color-text: #fff;
+   --btn-main-color: #272729;
+   --hover-color: #09c;
+}
+
+[data-theme="light"] {
+   --main-color: #eeeeee;
+   --second-color: #909396;
+   --nav-color: #8a75e9;
+   --color-text: #000;
+   --btn-main-color: #414550;
+   --hover-color: #fff;
+}
+
+.main-btn {
+   background-color: var(--btn-main-color);
+   color: var(--color-text);
+}
+
+.main-btn:hover {
+   background: linear-gradient(rgb(0 0 0 / 0.1), rgb(0 0 0 / 0.2));
+}
+
+.form-control,
+.form-control:focus {
+   background-color: var(--main-color);
+   color: var(--color-text);
+   border-color: var(--second-color);
+}
+
+.form-control::placeholder {
+   color: var(--color-text);
+}
+
+.badge-color {
+   background-color: var(--second-color);
+}
+
+/***** Bootstrap Variables *****/
+.breadcrumb-item+.breadcrumb-item::before  {
+   --bs-breadcrumb-divider-color:          var(--color-text);
+   --bs-breadcrumb-active-color:           var(--color-text);
+}
+
+/***** End theme customize *****/
+
+/***** Global *****/
+@import url("https://fonts.googleapis.com/css2?family=Nerko+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;500;700&display=swap");
+
+* {
+   transition: background-color 0.5s, color 0.2s;
+}
+
+body {
+   font-family: "Comfortaa", cursive;
+   min-height: 100%;
+   min-width: 100%;
+   background-color: var(--main-color);
+   color: var(--color-text);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+   font-family: "Nerko One", cursive;
+   color: var(--color-text) !important;
+}
+
+a,
+p,
+span {
+   color: inherit !important;
+}
+
+ul {
+   list-style-position: inside;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+   appearance: none;
+   display: none;
+}
+
+.login .login-area,
+.register .register-area {
+   background-color: rgb(255 255 255 / 0.1);
+   backdrop-filter: blur(5px);
+}
+
+.nav-bg {
+   background-color: var(--main-color);
+}
+
+.nav-item .nav-link.active,
+.nav-item .nav-link:hover {
+   color: var(--hover-color) !important;
+   transition: color 0.5s;
+}
+
+::-webkit-scrollbar {
+   width: 0.625rem;
+}
+
+::-webkit-scrollbar-track {
+   background-color: var(--second-color);
+}
+
+::-webkit-scrollbar-thumb {
+   background-color: var(--main-color);
+   border-radius: 50px;
+   box-shadow: 0 0 5px rgb(0 0 0 / 0.5) inset;
+}
+/***** End Global *****/
+
+/***** Login *****/
+.login .image {
+   background: url("../assets/images/login.jpg") center / cover no-repeat;
+   min-height: 100%;
+}
+/***** End Login *****/
+
+/***** Register *****/
+
+.register .image {
+   background: url("../assets/images/register.jpg") center / cover no-repeat;
+   min-height: 100%;
+}
+/***** End Register *****/
+
+/***** Navbar *****/
+
+nav {
+   margin-top: 80px;
+   margin-bottom: 40px;
+}
+
+.navbar {
+   padding: 0;
+   top: 0;
+   left: 0;
+   right: 0;
+   z-index: 9999999;
+ }
+ .navbar .container {
+   background-color: var(--nav-color);
+   color: var(--color-text);
+ }
+ .navbar a {
+   color: var(--color-text);
+   font-size: 14px;
+   font-weight: 400;
+   text-transform: uppercase;
+ }
+ .navbar-nav,
+ .navbar-nav .nav-link.show,
+ .nav-link:focus,
+ .nav-link:hover,
+ .navbar-nav .nav-link.active,
+ .navbar-nav .nav-link.show {
+   color: var(--active-color);
+ }
+ .navbar-brand:focus,
+ .navbar-brand:hover {
+   color: var(--color-text);
+ }
+/***** End Navbar *****/
+
+/***** Home *****/
+.home .card {
+   filter: grayscale(0.7);
+   transition: transform 0.5s, filter 0.5s 0.1s;
+}
+
+.home .card:hover {
+   transform: scale(1.05);
+   filter: grayscale(0);
+}
+/***** End Home *****/
+
+/***** Details *****/
+.details {
+   background-color: #27272969;
+
+   backdrop-filter: blur(4px);
+}
+/***** End Details *****/
+
+/***** Loader *****/
+.loading {
+   position: fixed;
+   z-index: 9999;
+   inset: 0;
+   background-color: #272b30e3;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+.loader {
+   width: 100px;
+   height: 100px;
+   border-radius: 50%;
+   display: inline-block;
+   border-top: 4px solid #fff;
+   border-right: 4px solid transparent;
+   box-sizing: border-box;
+   animation: rotation 1s linear infinite;
+   position: relative;
+}
+.loader::after {
+   content: "";
+   box-sizing: border-box;
+   position: absolute;
+   left: 0;
+   top: 0;
+   width: 100px;
+   height: 100px;
+   border-radius: 50%;
+   border-left: 4px solid var(--hover-color);
+   border-bottom: 4px solid transparent;
+   animation: rotation 0.5s linear infinite reverse;
+}
+@keyframes rotation {
+   0% {
+      transform: rotate(0deg);
+   }
+   100% {
+      transform: rotate(360deg);
+   }
+}
+/***** End Loader *****/
